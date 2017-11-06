@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="description" content="">
+      <meta name="author" content="Jakub Kwasiborski">
+      <!-- <link rel="icon" href="./favicon.ico"> -->
+
+      <title>Issue Tracker</title>
+
+      <link href="/css/bootstrap/bootstrap.min.css" rel="stylesheet">
+
+      <link href="/css/index.css" rel="stylesheet">
+         
+      <script type="text/template" id="issueListTemplate">
+         <div id="issueList">
+            <h2 class="mt-2 mb-2">Issue List</h2>
+            <div class="row">
+               <div class="col-sm" id="issueListOpen">
+                  <h3>Open</h3>
+               </div>
+               <div class="col-sm" id="issueListPending">
+                  <h3>Pending</h3>
+               </div>
+               <div class="col-sm" id="issueListClosed">
+                  <h3>Closed</h3>
+               </div>
+            </div>
+         </div>
+      </script>
+      
+      <script type="text/template" id="issueTemplate">
+         <div class="issueListIssue card mb-2">
+            <div class="card-body">
+               <h5 class="card-title"><a href="#issue/<%= issueID %>"><%= issueName %></a></h5>
+               <p class="card-text"><%= issueDescription.substring(0, 120) %><%= (issueDescription.length > 120) ? '...' : '' %></p>
+            </div>
+         </div>
+      </script>
+      
+      <script type="text/template" id="issueNewTemplate">
+         <div id="issueNew">
+            <h2 class="mt-2 mb-2">Create Issue</h2>
+            <div class="form-group">
+               <label for="issueNewName">Issue Name</label>
+               <input type="text" id="issueNewName" class="form-control mb-4">
+               
+               <label for="issueNewDescription">Issue Description</label>
+               <textarea id="issueNewDescription" class="form-control mb-4"></textarea>
+               
+               <button type="button" class="btn btn-primary" id="issueNewSave">Add issue</button>
+            </div>
+         </div>
+      </script>
+      
+      <script type="text/template" id="issueDetailsTemplate">
+         <div id="issueDetails">
+            <h2 class="mt-2 mb-2">Issue Details</h2>
+            <div class="form-group">
+               
+               <label for="issueDetailsName">Issue Name</label>
+               <input type="text" id="issueDetailsName" value="<%= issueName %>" class="form-control mb-4">
+               
+               <label for="issueDetailsDescription">Issue Description</label>
+               <textarea id="issueDetailsDescription" class="form-control mb-4"><%= issueDescription %></textarea>
+               
+               <label for="issueDetailsState">Issue State</label>
+               <select id="issueDetailsState" class="form-control mb-4">
+               <% for (var i = 0, statesLength = states.length; i < statesLength; i++) { %>
+                  <option value="<%= states[i] %>" <%= (states[i] === issueState) ? 'selected' : '' %>><%= states[i] %></option>
+               <% } %>               
+               </select>
+               
+               <button type="button" class="btn btn-primary" id="issueDetailsUpdate">Update issue</button>
+               <button type="button" class="btn btn-danger" id="issueDetailsDelete">Delete issue</button>
+            </div>
+         </div>
+      </script>
+
+   </head>
+
+   <body>
+      
+
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-3">
+         
+         <a class="navbar-brand" href="#">Issue Tracker</a>
+
+         <ul class="navbar-nav mr-auto">
+           
+            <li class="nav-item">
+               <a class="nav-link" href="#issue/new">New</a>
+            </li>
+          
+         </ul>
+      </nav>
+
+
+      <main role="main" class="container" id="mainContainer">
+   
+         <div>
+            <h1>Simple Issue Tracker</h1>
+            <p class="lead">Loading ...</p>
+         </div>
+
+      </main>
+      
+      <script src="/js/jquery/jquery.min.js"></script>
+      <script src="/js/popper.js/umd/popper.min.js"></script>
+      <script src="/js/bootstrap/bootstrap.min.js"></script>
+      <script src="/js/underscore/underscore-min.js"></script>
+      <script src="/js/backbone/backbone-min.js"></script>
+      <script src="/js/index.js"></script>
+   </body>
+</html>
