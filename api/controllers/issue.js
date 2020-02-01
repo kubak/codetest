@@ -14,7 +14,7 @@ let model = new IssueModel();
  * @apiSuccess {String} issue.issueName retrieved Issue name
  * @apiSuccess {String} issue.issueDescription retrieved Issue description
  * @apiSuccess {String} issue.issueState retrieved Issue state
- * @apiSuccess {String} issue.issueDescription retrieved Issue last modified date ISO8601 format
+ * @apiSuccess {String} issue.issueModifiedDate retrieved Issue last modified date ISO8601 format
  * 
  * 
  * @apiSuccessExample Success-Response:
@@ -63,7 +63,7 @@ exports.list = function (req, res) {
  * @apiSuccess {String} issueName retrieved Issue name
  * @apiSuccess {String} issueDescription retrieved Issue description
  * @apiSuccess {String} issueState retrieved Issue state
- * @apiSuccess {String} issueDescription retrieved Issue last modified date ISO8601 format
+ * @apiSuccess {String} issueModifiedDate retrieved Issue last modified date ISO8601 format
  * 
  * @apiSuccessExample Success-Response:
  *     HTTP/1.1 200 OK
@@ -112,7 +112,7 @@ exports.get = function(req, res) {
  * @apiSuccess {String} issueName retrieved updated Issue name
  * @apiSuccess {String} issueDescription retrieved updated Issue description
  * @apiSuccess {String} issueState retrieved updated Issue state
- * @apiSuccess {String} issueDescription retrieved updated Issue last modified date ISO8601 format
+ * @apiSuccess {String} issueModifiedDate retrieved updated Issue last modified date ISO8601 format
  * 
  * @apiSuccessExample Success-Response:
  *     HTTP/1.1 200 OK
@@ -205,7 +205,7 @@ exports.remove = function(req, res) {
  * @apiSuccess {String} issueName retrieved created Issue name
  * @apiSuccess {String} issueDescription retrieved created Issue description
  * @apiSuccess {String} issueState retrieved created Issue state
- * @apiSuccess {String} issueDescription retrieved created Issue last modified date ISO8601 format
+ * @apiSuccess {String} issueModifiedDate retrieved created Issue last modified date ISO8601 format
  * 
  * @apiSuccessExample Success-Response:
  *     HTTP/1.1 200 OK
