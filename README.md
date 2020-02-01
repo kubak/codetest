@@ -9,7 +9,7 @@ Simple issue tracker with UI.
 3. Edit and save `config/db.json` putting in valid values
 4. Run `npm start` from the root directory
 
-Your API will now be served to `localhost:3000` by default.
+Your API will now be served to `localhost:3001` by default.
 
 ---
 

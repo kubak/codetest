@@ -32,7 +32,7 @@ app.use(function (req, res, next) {
 app.use('/api/v1', require('./api'));
 
 // no templating for now so just serve index.html on /
-app.get('/', function (req, res) { res.sendFile(__dirname + '/public/templates/index.html'); });
+app.get('/', function (req, res) { res.sendFile(__dirname + '/public/index.html'); });
 
 // serve static files
 app.use(express.static(__dirname + '/public'));
