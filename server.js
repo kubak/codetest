@@ -4,8 +4,6 @@ let express = require('express');
 let morgan = require('morgan');
 var bodyParser = require('body-parser');
 
-let PORT = 3000;
-
 let app = express();
 
 let sessionOptions = { cookie: {} };
@@ -46,6 +44,5 @@ app.all('/*', function(req, res) {
     });
 });
 
-// start app
-app.listen(PORT);
-console.log('server listening on port ' + PORT);
+// export app
+module.exports = app;

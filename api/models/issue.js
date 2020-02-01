@@ -1,11 +1,9 @@
-let mysql = require('mysql2');
-
-let sqlConfig = require('../../config/db.json');
+let sql = require('../utils/sql');
 
 class Issue {
    
    constructor () {
-      this.sql = mysql.createPool(sqlConfig);
+      this.sql = sql();
    }
    
    list (callback) {

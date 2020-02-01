@@ -1,23 +1,18 @@
 'use strict';
 
-before(function(done) {
-  // Ensure that 'should' and 'sinon' library methods
-  // will be available to all tests
-  global.should = require('should');
-  global.sinon = require('sinon');
+// ensure that 'sinon' and 'should' library methods
+// will be available to all tests
+require('should');
+const sinon = require('sinon');
 
-  // Start and configure the server
-  require('../server');
-
-  // Wait one second before calling "done" to ensure
-  // that server is up and running
-  setTimeout(done, 1000);
+before(function() {
+   // supertest version of express server
+   global.request = require('supertest')(require('../server'));
 });
 
-beforeEach(function() {
-  global.sandbox = sinon.sandbox.create();
-});
-
-afterEach(function() {
-  global.sandbox.restore();
+after(function () {
+   // need to terminate sql connection 
+   // otherwise the process stays up after running all tests
+   const sql = require('../api/utils/sql')();
+   sql.end();
 });
